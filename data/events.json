@@ -1,0 +1,15 @@
+{
+    events: [
+        {
+            name: "Air and Water Show Pot Luck Picnic",
+            start: "2014-08-16 10:00:00",
+            end: "2014-08-16 15:00:00",
+            descrtiption: "Held at North Avenue Beach, the BDAI tent will be located near the Fullerton exit, east of the bridge crossover. Look for the BDAI signs!
+
+Hot dogs, hamburgers, soft drinks and water will be provided but please bring a side dish to share!
+
+RSVP with your dish information by Monday August 11th.",
+            picture: "air_and_water.jpg"
+        }
+    ]
+}
