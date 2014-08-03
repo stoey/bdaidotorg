@@ -1,10 +1,24 @@
 .navbar-nav li:hover {
     background-color: #80002b;
 }
-body .navbar.navbar-default ul.navbar-nav li:hover a:hover {
+.navbar.navbar-default ul.navbar-nav li:hover a:hover {
     color: #fff;
+}
+
+.navbar-brand {
+    padding: 5px;
 }
 
 footer {
     background-color: #eee;
+}
+
+body#home .jumbotron {
+    background-image: url(/jumbotron_bg.jpg); 
+    background-position: center center; 
+    background-size: 100% auto;
+}
+
+.jumbotron .container {
+    background-color: rgba(255,255,255,0.75);
 }
