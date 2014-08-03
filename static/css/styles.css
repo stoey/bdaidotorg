@@ -13,6 +13,14 @@ footer {
     background-color: #eee;
 }
 
+footer ul li {
+    list-style-type: none;
+}
+
+footer ul li img {
+    margin-bottom: 5px;
+}
+
 body#home .jumbotron {
     background-image: url(/jumbotron_bg.jpg); 
     background-position: center center; 
