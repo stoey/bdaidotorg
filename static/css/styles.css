@@ -1,0 +1,10 @@
+.navbar-nav li:hover {
+    background-color: #80002b;
+}
+body .navbar.navbar-default ul.navbar-nav li:hover a:hover {
+    color: #fff;
+}
+
+footer {
+    background-color: #eee;
+}
