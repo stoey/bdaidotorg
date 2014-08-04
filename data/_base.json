@@ -1,0 +1,203 @@
+{ 
+    "nav": [
+        {
+	    "name": "Bleeding Disorders",
+	    "target": "/bleeding_disorders/"
+	},
+	{
+	    "name": "Upcoming Events",
+	    "target": "/events/"
+	},
+	{
+	    "name": "Support Us",
+	    "target": "/support/"
+	}
+    ],
+    "footer":
+{
+    "columns": [
+	{
+	    "sections": [
+		{
+		    "name": "About Us",
+		    "links": [
+			{
+			    "name": "Our Mission",
+			    "target": "/about/mission/"
+			},
+			{
+			    "name": "Board and Staff",
+			    "target": "/about/board/"
+			},
+			{
+			    "name": "Volunteer Opportunities",
+			    "target": "/about/volunteers/"
+			},
+			{
+			    "name": "Jobs",
+			    "target": "/about/jobs/"
+			}
+		    ]
+		},
+		{
+		    "name": "Camp Warren Jyrch",
+		    "links": [
+			{
+			    "name": "About Camp",
+			    "target": "/camp/about/"
+			},
+			{
+			    "name": "Mission",
+			    "target": "/camp/mission/"
+			},
+			{
+			    "name": "Program Details",
+			    "target": "/camp/program/"
+			},
+			{
+			    "name": "Our Staff",
+			    "target": "/camp/staff/"
+			},
+			{
+			    "name": "Camp Facility",
+			    "target": "/camp/facility/"
+			},
+			{
+			    "name": "Camp Newsletters",
+			    "target": "/camp/newsletters/"
+			},
+			{
+			    "name": "Gallery",
+			    "target": "/camp/gallery/"
+			},
+			{
+			    "name": "Applications",
+			    "target": "/camp/applications/"
+			}
+		    ]
+		}
+	    ]
+	},
+	{
+	    "sections": [
+		{
+		    "name": "What We Do",
+		    "links": [
+			{
+			    "name": "Community Support",
+			    "target": "/support/community/",
+			    "sub_links": [
+				{
+				    "name": "Youth Programs",
+				    "target": "/support/community/youth/"
+				},
+				{
+				    "name": "Victory for Women",
+				    "target": "/support/community/women/"
+				},
+				{
+				    "name": "Blood Brotherhood",
+				    "target": "/support/community/blood_brotherhood/"
+				},
+				{
+				    "name": "Latino Community",
+				    "target": "/support/community/latino/"
+				}
+			    ]
+			},
+			{
+			    "name": "Assistance Programs",
+			    "target": "/support/assistance/",
+			    "sub_links": [
+				{
+				    "name": "Financial Assistance",
+				    "target": "/support/assistance/financial/"
+				},
+				{
+				    "name": "Illinois Hemophilia Program",
+				    "target": "/support/assistance/illinois_hemophilia_program/"
+				},
+				{
+				    "name": "MedicAlert",
+				    "target": "/support/assistance/medicalert/"
+				},
+				{
+				    "name": "Scholarships",
+				    "target": "/support/assistance/scolarships/"
+				},
+				{
+				    "name": "Resource Directories",
+				    "target": "/support/assistance/resources/"
+				}
+			    ]
+			},
+			{
+			    "name": "Advocacy",
+			    "target": "/support/advocacy/"
+			},
+			{
+			    "name": "Education",
+			    "target": "/support/education/"
+			}
+		    ]
+		}
+	    ]
+	},
+	{
+	    "sections": [
+		{
+		    "name": "Member Of",
+		    "links": [
+			{
+			    "name": "National Hemophilia Foundation",
+			    "target": "http://www.hemophilia.org",
+			    "image": "/images/national_hemophilia_foundation.png"
+			},
+			{
+			    "name": "Community Health Charities Illinois",
+			    "target": "http://illinois.healthcharities.org",
+			    "image": "/images/community_health_charities_illinois.png"
+			},
+			{
+			    "name": "Hemophilia Federation of America",
+			    "target": "http://www.hemophiliafed.org",
+			    "image": "/images/hemophilia_federation_of_america.png"
+			}
+		    ]
+		},
+		{
+		    "name": "Connect with us",
+		    "links": [
+			{
+			    "name": "Facebook",
+			    "target": "#"
+			},
+			{
+			    "name": "Twitter",
+			    "target": "#"
+			},
+			{
+			    "name": "LinkedIn",
+			    "target": "#"
+			},
+			{
+			    "name": "info@bdai.org",
+			    "target": "mailto:info@bdai.org"
+			},
+			{
+			    "name": "210 S DesPlaines St.\nChicago, IL\n60661-550"
+			},
+			{
+			    "name": "(312) 427 1495"
+			},
+			{
+			    "name": "(312) 427 1602 (fax)"
+			}
+		    ]
+		}
+	    ]
+	}
+    ]
+},
+    "year": "2014"
+}
