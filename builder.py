@@ -32,12 +32,9 @@ def get_context(page, extra_context):
                 context = json.load(context_file)
         else:
             for filename in os.listdir(page.context):
-                print filename
                 with open(os.path.join(page.context, filename)) as context_file:
                     key = filename.partition('.')[0]
                     value = json.load(context_file)
-                    print key
-                    print value
                     context[key] = value
     context.update(extra_context)
     return context
@@ -56,14 +53,11 @@ def render_page(page, **extra_context):
 if __name__ == "__main__":
     for dirpath, dirnames, filenames in os.walk(TEMPLATE_DIR):
         filenames = [fn for fn in filenames if fn[0] not in '._']
-        print dirpath, dirnames, filenames
         for filename in filenames:
             dirname = dirpath[len(TEMPLATE_DIR):].lstrip('/')
             path = os.path.join(dirname, filename.rpartition('.')[0])
-            print path, dirname
             page = Page(path)
             out_dir = os.path.dirname(page.output)
-            print out_dir
             if not os.path.exists(out_dir):
                 os.makedirs(out_dir)
             with open(page.output, 'w') as output_file:
