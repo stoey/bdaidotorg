@@ -1,0 +1,14 @@
+[
+        {
+	    "name": "Bleeding Disorders",
+	    "target": "/bleeding_disorders/"
+	},
+	{
+	    "name": "Upcoming Events",
+	    "target": "/events/"
+	},
+	{
+	    "name": "Support Us",
+	    "target": "/support/"
+	}
+]
