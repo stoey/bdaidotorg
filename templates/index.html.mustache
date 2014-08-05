@@ -8,7 +8,6 @@
 </div>
 
 <div class="container">
-  <!-- Example row of columns -->
   <div class="row">
     <div class="col-md-4">
       <h2>Newly Diagnosed?</h2>
@@ -19,20 +18,23 @@
       <p>The Bleeding Disorders Alliance Illinois (BDAI) supports families affected by inherited bleeding disorders such as Hemophilia and von Willebrand disease by providing its members with the unbiased medical information and resources that allow them to live a healthy and active lifestyle. This neutral information is especially important for families seeking answers and support soon after the initial diagnosis.</p>
       <p>BDAI also fosters a welcoming community for families to meet, interact and share information and advice. Through education and support, BDAI helps its members advocate on their own behalf with public and private insurance providers, medical services and government agencies, while representing the bleeding community in the world at large.</p>
     </div>
-    <div class="col-md-4">
-      <h2>Next Event <a class="btn btn-default pull-right" href="#" role="button">All Events &raquo;</a></h2>
-      <div class="thumbnail">
-        <img src="/air_and_water.jpg">
+    <div class="col-md-4 next_event">
+      <h2>Next Event <a class="btn btn-default pull-right" href="/events/" role="button">All Events &raquo;</a></h2>
+      {{#events}}
+      <div class="thumbnail event" data-start="{{start}}" data-end="{{end}}">
+        <img src="{{image}}">
       <div class="caption">
-        <h3>Air and Water Show Pot Luck Picnic</h3>
-	<h4>Saturday August 16th 10am-3pm</h4>
-        <p>Held at North Avenue Beach, the BDAI tent will be located near the Fullerton exit, east of the bridge crossover.  Look for the BDAI signs!</p>
-        <p>Hot dogs, hamburgers, soft drinks and water will be provided but please bring a side dish to share!</p>
-        <p>RSVP with your dish information by Monday August 11th.</p>
-        <p><a class="btn btn-primary" href="#">RSVP &raquo;</a> </p>
+        <h3>{{name}}</h3>
+	<h4 class="times">{{start}} - {{end}}</h4>
+        <p>{{description}}</p>
+	{{#action}}
+        <p><a class="btn btn-primary" href="{{target}}#">{{text}} &raquo;</a> </p>
+	{{/action}}
       </div>
     </div>
-   </div>
+
+      {{/events}}
+  </div>
     <div class="col-md-4">
       <h2>Sponsors<a class="btn btn-default pull-right" href="#" role="button">All Sponsors &raquo;</a></h2>
       <div class="thumbnail">
