@@ -64,7 +64,6 @@ class JsonIncluder(object):
     def include_item(key, context):
         value = context[key]
         path, selector = value.partition('#')[::2]
-        print key, path, selector, value
         with open(path) as f:
             data = json.load(f)
         if selector:
@@ -80,7 +79,6 @@ class JsonIncluder(object):
     def update(json_obj):
         updates = {}
         for key in json_obj.iterkeys():
-            print key
             if JsonIncluder.is_include(key):
                 new_key, new_value = JsonIncluder.include_item(key, json_obj)
                 updates[new_key] = new_value
