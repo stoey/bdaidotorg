@@ -16,13 +16,13 @@ FILE_HANDLERS = dict(
 )
 
 def get_handler(path):
-    extension = path.rpartition('.')[0]
+    extension = path.rpartition('.')[2]
     handler_name = FILE_HANDLERS.get(extension, 'DefaultFileHandler')
     handler_class = globals()[handler_name]
     return handler_class(path)
 
 
-class DefaultFileHandler(object):
+class FileHandler(object):
     def __init__(self, path):
         self.path = path
 
@@ -37,17 +37,23 @@ class DefaultFileHandler(object):
                 outfile.write(self.transform(infile))
 
     def transform(self, f):
-        return f.read()
+        raise NotImplementedError('Subclassed should define transform()')
 
+    @property
     def output_name(self):
         return self.path
 
     @property
     def output_path(self):
-        return os.path.join(OUTPUT_DIR, self.output_name())
+        return os.path.join(OUTPUT_DIR, self.output_name)
 
     def __str__(self):
-        return "%s ----> %s" % (self.path, self.output_name())
+        return "%s ----> %s" % (self.path, self.output_name)
+
+
+class DefaultFileHandler(FileHandler):
+    def transform(self, f):
+        return f.read()
 
 class JsonIncluder(object):
     @staticmethod
@@ -58,6 +64,7 @@ class JsonIncluder(object):
     def include_item(key, context):
         value = context[key]
         path, selector = value.partition('#')[::2]
+        print key, path, selector, value
         with open(path) as f:
             data = json.load(f)
         if selector:
@@ -73,6 +80,7 @@ class JsonIncluder(object):
     def update(json_obj):
         updates = {}
         for key in json_obj.iterkeys():
+            print key
             if JsonIncluder.is_include(key):
                 new_key, new_value = JsonIncluder.include_item(key, json_obj)
                 updates[new_key] = new_value
@@ -80,7 +88,7 @@ class JsonIncluder(object):
             del json_obj[JSON_INCLUDE_PREFIX + key]
             json_obj[key] = updates[key]
 
-class MustacheHandler(DefaultFileHandler):
+class MustacheHandler(FileHandler):
     @property
     def extension(self):
         return self.path.rpartition('.')[2]
@@ -101,7 +109,7 @@ class MustacheHandler(DefaultFileHandler):
 
     @property
     def basename(self):
-        self.path.rpartition('.')[0]
+        return self.path.rpartition('.')[0]
 
     @property
     def context_filename(self):
@@ -110,17 +118,10 @@ class MustacheHandler(DefaultFileHandler):
     @staticmethod
     def _context(filename):
         context = {}
-        if os.path.exists(filename):
-            if not os.path.isdir(filename):
-                with open(filename) as context_file:
-                    context = json.load(context_file)
-            else:
-                #TODO - just use includes?
-                for sub_filename in os.listdir(filename):
-                    with open(os.path.join(filename, sub_filename)) as context_file:
-                        key = filename.partition('.')[0]
-                        value = json.load(context_file)
-                        context[key] = value
+        path = os.path.join(DATA_DIR, filename)
+        if os.path.exists(path):
+            with open(path) as context_file:
+                context = json.load(context_file)
         JsonIncluder.update(context)
         return context
 
@@ -135,28 +136,12 @@ class MustacheHandler(DefaultFileHandler):
     def transform(self, f):
         return self._render(f.read())
 
+    @property
     def output_name(self):
         return self.basename
 
     def __str__(self):
-        return "%s --[%s]--> %s" % (self.path, self.page.context ,self.output_name())
-
-class Page(object):
-    def __init__(self, path):
-        self.path = path
-
-    @property
-    def template(self):
-        return os.path.join(TEMPLATE_DIR, self.path + ".mustache")
-
-    @property
-    def context(self):
-        return os.path.join(DATA_DIR, self.path + ".json")
-
-    @property
-    def output(self):
-        return os.path.join(OUTPUT_DIR, self.path)
-
+        return "%s --[%s]--> %s" % (self.path, self.context_filename, self.output_name)
 
 if __name__ == "__main__":
     for dirpath, dirnames, filenames in os.walk(TEMPLATE_DIR):
