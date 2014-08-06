@@ -1,0 +1,4 @@
+{
+    "@next_event": "data/common/events.json#sort($.*[@.end>str(now())],start)[0]",
+    "@jumbotron": "data/common/jumbotron.json#sort($.*[@.expires>str(now())],expires)[0]"
+}
