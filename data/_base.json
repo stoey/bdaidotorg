@@ -1,0 +1,6 @@
+{
+    "@footer": "data/common/footer.json",
+    "@nav": "data/common/nav.json",
+    "@year": "data/common/year.json"
+
+}
