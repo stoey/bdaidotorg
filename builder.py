@@ -1,12 +1,15 @@
 import json
 import os
 
+import objectpath
 import pystache
 
 BASE_PAGE_PATH = "_base"
 TEMPLATE_DIR = "templates"
 DATA_DIR = "data"
 OUTPUT_DIR = "static/output"
+
+INCLUDE_PREFIX = '@'
 
 class Page(object):
     def __init__(self, path):
@@ -24,6 +27,31 @@ class Page(object):
     def output(self):
         return os.path.join(OUTPUT_DIR, self.path)
 
+def include_item(key, context):
+    value = context[key]
+    path, selector = value.partition('#')[::2]
+    with open(path) as f:
+        data = json.load(f)
+    if selector:
+        tree = objectpath.Tree(data)
+        include = tree.execute(str(selector))
+    else:
+        include = data
+    return key[len(INCLUDE_PREFIX):],include
+
+def is_include(key):
+    return key.startswith(INCLUDE_PREFIX)
+
+def process_includes(context):
+    updates = {}
+    for key in context.iterkeys():
+        if is_include(key):
+            new_key, new_value = include_item(key, context)
+            updates[new_key] = new_value
+    for key in updates.iterkeys():
+        del context[INCLUDE_PREFIX + key]
+        context[key] = updates[key]
+
 def get_context(page, extra_context):
     context = {}
     if os.path.exists(page.context):
@@ -37,6 +65,7 @@ def get_context(page, extra_context):
                     value = json.load(context_file)
                     context[key] = value
     context.update(extra_context)
+    process_includes(context)
     return context
 
 

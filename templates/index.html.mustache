@@ -1,12 +1,17 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
+{{#jumbotron}}
 <div class="jumbotron">
   <div class="container">
-    <h1>Hemophilia Walk Right Around the Corner</h1>
-    <p>The Walk Committee is already planning to assemble an event that will bring us all together in Lincoln Park on September 13. We have set an aggressive goal of raising $100,000 and bringing together over 750 walkers.  We can't make all this happen without you!</p>
-    <p><a class="btn btn-primary btn-lg" role="button">Register here &raquo;</a></p>
+    <h1>{{title}}</h1>
+    <p>{{description}}</p>
+    <p>
+    {{#actions}}
+      <a class="btn btn-primary btn-lg" src={{target}} role="button">{{text}} &raquo;</a>
+    {{/actions}}
+    </p>
   </div>
 </div>
-
+{{/jumbotron}}
 <div class="container">
   <div class="row">
     <div class="col-md-4">
@@ -20,7 +25,7 @@
     </div>
     <div class="col-md-4 next_event">
       <h2>Next Event <a class="btn btn-default pull-right" href="/events/" role="button">All Events &raquo;</a></h2>
-      {{#events}}
+      {{#next_event}}
       <div class="thumbnail event" data-start="{{start}}" data-end="{{end}}">
         <img src="{{image}}">
       <div class="caption">
@@ -33,7 +38,7 @@
       </div>
     </div>
 
-      {{/events}}
+      {{/next_event}}
   </div>
     <div class="col-md-4">
       <h2>Sponsors<a class="btn btn-default pull-right" href="#" role="button">All Sponsors &raquo;</a></h2>

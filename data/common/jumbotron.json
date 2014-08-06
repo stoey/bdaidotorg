@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Hemophilia Walk Right Around the Corner",
+	"expires": "2014-11-14",
+	"background_image": "",
+	"description": "The Walk Committee is already planning to assemble an event that will bring us all together in Lincoln Park on September 13. We have set an aggressive goal of raising $100,000 and bringing together over 750 walkers.  We can't make all this happen without you!",
+	"actions": [
+	    {
+                "text": "Register here",
+                "target": "#"
+	    }
+	]
+    }
+]
