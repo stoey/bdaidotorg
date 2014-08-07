@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 
 import objectpath
 import pystache
@@ -141,7 +142,29 @@ class MustacheHandler(FileHandler):
     def __str__(self):
         return "%s --[%s]--> %s" % (self.path, self.context_filename, self.output_name)
 
+def print_usage():
+    print "Usage:"
+    print "    %s" % sys.argv[0]
+    print "    %s [source] destination" % sys.argv[0]
+    print "Defaults:"
+    print "    source: %s" % '.'
+    print "    destination: %s" % OUTPUT_DIR
+
 if __name__ == "__main__":
+    try:
+        if len(sys.argv) == 2:
+            if sys.argv[1] in ['-h', '--help']:
+                print_usage()
+                sys.exit(0)
+            OUTPUT_DIR = sys.argv[1]
+        if len(sys.argv) >= 3:
+            os.chdir(sys.argv[1])
+            OUTPUT_DIR = sys.argv[2]
+    except OSError as e:
+        print e
+        print_usage()
+        sys.exit(e.errno)
+
     for dirpath, dirnames, filenames in os.walk(TEMPLATE_DIR):
         filenames = [fn for fn in filenames if fn[0] not in '._']
         for filename in filenames:
