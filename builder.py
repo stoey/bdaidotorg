@@ -172,6 +172,5 @@ if __name__ == "__main__":
             extension = filename.rpartition('.')[2]
             path = os.path.join(dirname, filename)
             handler = get_handler(path)
-            with open(handler.output_path, 'w') as output_file:
-                handler.process()
+            handler.process()
             print handler
