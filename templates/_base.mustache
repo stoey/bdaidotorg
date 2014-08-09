@@ -46,7 +46,7 @@
         {{#columns}}
         <div class="col-md-4">
 	  {{#sections}}
-	  <h4>{{name}}</h4>
+	  <h4>{{#target}}<a href={{target}}>{{name}}</a>{{/target}}{{^target}}{{name}}{{/target}}</h4>
 	  <ul>
 	    {{#links}}
             <li>
