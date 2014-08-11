@@ -161,7 +161,7 @@ if __name__ == "__main__":
             os.chdir(sys.argv[1])
             OUTPUT_DIR = sys.argv[2]
     except OSError as e:
-        print e
+        print "Error: %s" % e
         print_usage()
         sys.exit(e.errno)
 
@@ -172,5 +172,5 @@ if __name__ == "__main__":
             extension = filename.rpartition('.')[2]
             path = os.path.join(dirname, filename)
             handler = get_handler(path)
-            handler.process()
             print handler
+            handler.process()
