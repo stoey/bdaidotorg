@@ -8,7 +8,7 @@ import pystache
 BASE_PAGE_PATH = "_base"
 TEMPLATE_DIR = "templates"
 DATA_DIR = "data"
-OUTPUT_DIR = "static/output"
+OUTPUT_DIR = "static"
 
 JSON_INCLUDE_PREFIX = '@'
 
@@ -140,7 +140,7 @@ class MustacheHandler(FileHandler):
         return self.basename
 
     def __str__(self):
-        return "%s --[%s]--> %s" % (self.path, self.context_filename, self.output_name)
+        return "%s --[%s]--> %s" % (self.path, self.context_filename if self.context else "", self.output_name)
 
 def print_usage():
     print "Usage:"
