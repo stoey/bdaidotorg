@@ -1,4 +1,6 @@
 import excel2json
+import pprint
+
 wb = excel2json.WORKBOOK_TEMPLATES['site']
 xlwb = wb.read('site.xlsx')
-print wb.json(xlwb)
+pprint.pprint(wb.json(xlwb))
