@@ -37,28 +37,22 @@ class Sheet(namedtuple('Sheet', 'name columns')):
     def json(self, excel_workbook):
         ws = excel_workbook.get_sheet_by_name(self.name)
         json = []
-        id_columns = [c for c in self.columns if SUB_OBJECT not in c.name]
-        sub_columns = [c for c in self.columns if SUB_OBJECT in c.name]
-        last_id = None
+        sub_columns = [c for c in self.columns if c.sub_object_name is not None]
         obj = None
-        for r, row in enumerate(ws.rows):
-            r += 1 # Skip header
+        for r in range(1, len(ws.rows)):
             values = tuple([col.json(ws, c, r) for c, col in enumerate(self.columns)])
             items = zip(self.columns, values)
-            id = tuple([v for c,v in items if c in id_columns])
-            if id != last_id:
-                if obj is not None:
-                    json.append(obj)
-                obj = dict([i for i in items if i[0] not in sub_columns])
-            else:
-                sub_keys = set([c.name.partition(SUB_OBJECT)[0] for c in sub_columns])
+            obj_values = tuple([v for c, v in items if c.sub_object_name is None])
+            if obj_values != tuple([None] * len(obj_values)):
+                obj = dict([(c.name, v) for c, v in items if c.sub_object_name is None])
+                json.append(obj)
+            if obj is not None:
+                sub_keys = set([c.sub_object_name for c in self.columns if c.sub_object_name is not None])
                 for sub_key in sub_keys:
-                    obj[sub_key] = obj[sub_key] if sub_key in obj else []
-                    sub_items = [(k.name.partition(SUB_OBJECT)[2], v) for k,v in items if k.name.startswith(sub_key)]
-                    obj[sub_key].append(dict(sub_items))
-            last_id = id
-        if obj is not None:
-            json.append(obj)
+                    if sub_key not in obj:
+                        obj[sub_key] = []
+                    sub_item = dict([(c.sub_object_key, v) for c,v in items if c.name.startswith(sub_key)])
+                    obj[sub_key].append(dict(sub_item))
         return json
 
 
@@ -68,6 +62,14 @@ class Column(namedtuple('Column', 'name type')):
 
     def json(self, excel_worksheet, index, row):
         return excel_worksheet.cell(column=index + 1, row=row + 1).value
+
+    @property
+    def sub_object_name(self):
+        return self.name.partition(SUB_OBJECT)[0] if SUB_OBJECT in self.name else None
+    
+    @property
+    def sub_object_key(self):
+        return self.name.partition(SUB_OBJECT)[2] if SUB_OBJECT in self.name else None
 
 
 WORKBOOK_TEMPLATES = dict(
@@ -92,9 +94,9 @@ WORKBOOK_TEMPLATES = dict(
             columns=(
                 Column('section', unicode),
                 Column('top_link', unicode),
-                Column('link%sname' % SUB_OBJECT, unicode),
-                Column('link%starget' % SUB_OBJECT, unicode),
-                Column('link%simage' % SUB_OBJECT, unicode),
+                Column('links%sname' % SUB_OBJECT, unicode),
+                Column('links%starget' % SUB_OBJECT, unicode),
+                Column('links%simage' % SUB_OBJECT, unicode),
             ),
         ),
         Sheet(
@@ -104,8 +106,8 @@ WORKBOOK_TEMPLATES = dict(
                 Column('expires', datetime),
                 Column('background_image', unicode),
                 Column('description', unicode),
-                Column('action%stext' % SUB_OBJECT, unicode),
-                Column('action%starget' % SUB_OBJECT, unicode),
+                Column('actions%stext' % SUB_OBJECT, unicode),
+                Column('actions%starget' % SUB_OBJECT, unicode),
             ),
         ),
     )),
@@ -118,8 +120,8 @@ WORKBOOK_TEMPLATES = dict(
                 Column('end', datetime),
                 Column('description', unicode),
                 Column('image', unicode),
-                Column('action%stext' % SUB_OBJECT, unicode),
-                Column('action%starget' % SUB_OBJECT, unicode)
+                Column('actions%stext' % SUB_OBJECT, unicode),
+                Column('actions%starget' % SUB_OBJECT, unicode)
             ),
         ),
     )),
