@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Upcoming Events</h1>
+  {{#events}}
+  <div class="row">
+    <div class="col-md-12">
+      <h2>{{name}}</h2>
+      <h3>{{start}}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+      <img src="{{image}}" class="img-responsive" alt="{{name}}">
+      </div>
+    </div>
+    <div class="col-md-8">
+      <p>{{description}}</p>
+      {{#action}}
+        <p><a class="btn btn-primary" href="{{target}}">{{text}} &raquo;</a> </p>
+      {{/action}}
+    </div>
+  </div>
+  <hr>
+  {{/events}}
+</div>
