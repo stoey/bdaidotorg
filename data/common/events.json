@@ -9,5 +9,60 @@
                 "text": "RSVP",
                 "target": "#"
             }
+        },
+        {
+            "name": "Annual Meeting",
+            "start": "2014-08-25 17:00:00",
+            "end": "2014-08-25 21:00:00",
+            "description": "65 Years and Going Strong!  We hope you will be able to join us for the Annual Meeting and Awards Dinner at the Crowne Plaza - Metro Downtown.  The Board of Directors will be honoring the Hispanic Bleeding Disorders Alliance (our outstanding Latino Family Group) with the Cibula Award.  The Cibula Award is given to recognize outstanding contribution to BDAI and the Illinois bleeding disorders community.  The Board chose to recognize this group for the strong on-going programs they coordinate for the Latino bleeding disorders community and their fundraising support.  The Board is also pleased to recognize Dr. Michael Tarantino with the Walking in Our Shoes Award.  Dr. Tarantino epitomizes the sentiment of this award; recognizing that living with a bleeding disorder makes you the person who knows best about your bleeding disorder.  His patient-centric approach helps each and every one of our families live a better life each day.  Bill Laughlin, our long-time camp volunteer, will also be awarded for his leadership and dedication to Camp Warren Jyrch.  There is no cost to attend this event",
+            "image": "/images/events/default.png",
+            "action": {
+                "text": "RSVP",
+                "target": "#"
+            }
+        },
+        {
+            "name": "Chicago Walk",
+            "start": "2014-09-13 10:00:00",
+            "end": "2014-09-13 15:00:00",
+            "description": "We are ready to kick-off the 2014 Illinois Hemophilia Walks!!  With your support we will make a huge difference to our bleeding disorder community once again this year!  This year - once again - we are hosting two events.  The Chicago Walk will be on September 13th in Lincoln Park.\nThis is our fifth year to be part of the national Walk program.  Each Walk has been a wonderful community experience bringing together so many people with bleeding disorders and their families and friends.  We have set big goals this year.  We want to raise  $100,000 and bring together over 1,000 walkers from both walks.  We can only make this happen with your help!",
+            "image": "/images/events/walk_2014.jpg",
+            "action": {
+                "text": "Register",
+                "target": "#"
+            }
+        },
+        {
+            "name": "Peoria Walk",
+            "start": "2014-10-18 10:00:00",
+            "end": "2014-10-18 15:00:00",
+            "description": "We are ready to kick-off the 2014 Illinois Hemophilia Walks!!  With your support we will make a huge difference to our bleeding disorder community once again this year!  This year - once again - we are hosting two events.  The Peoria Walk will be on October 18th at Ravinia by the Lakes in Peoria\nThis is our fifth year to be part of the national Walk program.  Each Walk has been a wonderful community experience bringing together so many people with bleeding disorders and their families and friends.  We have set big goals this year.  We want to raise  $100,000 and bring together over 1,000 walkers from both walks.  We can only make this happen with your help!",
+            "image": "/images/events/walk_2014.jpg",
+            "action": {
+                "text": "Register",
+                "target": "#"
+            }
+        },
+        {
+            "name": "National Meeting",
+            "start": "2014-09-18 09:00:00",
+            "end": "2014-09-21 17:00:00",
+            "description": "The National Hemophilia Foundation (NHF) is pleased to announce that registration for its 66th Annual Meeting, \"Nothing About Us Without Us\", September 18-20, 2014, is now open. Our yearly conference attracts the entire bleeding disorders community, from families and chapter staff to providers and industry representatives.\nDuring our three-day meeting, you will have more educational sessions than you can imagine, fun social events to attend and plenty of time for exploring the environs. A two-day Medical Track for Researchers and Physicians, with special programming for nurses, physical therapists and social workers. Plus, we have a new teen track for 13- to 17-year-olds!\nThis year our meeting is in Washington, DC, a tourist mecca for family-friendly museums, monuments, and galleries that provide education, history and fun. And the best part is that many of the options are free!",
+            "image": "/images/events/nhf_2014.jpg",
+            "action": {
+                "text": "RSVP",
+                "target": "#"
+            }
+        },
+        {
+            "name": "Wine Auction",
+            "start": "2014-10-24 19:00:00",
+            "end": "2014-10-24 22:00:00",
+            "description": "Join us for an evening of fine wine, food and supporting the Illinois Bleeding Disorders Community  - downtown Chicago at the iconic Columbia Yacht Club.  This year's Autumnal Wine Tasting Dinner & Auction will be held Friday, October 24th  This unique event offers everyone from the wine novice to the aficionado the opportunity to learn more about the wine experience through a wonderful four-course meal.   More details will follow.",
+            "image": "/images/events/wine.jpg",
+            "action": {
+                "text": "RSVP",
+                "target": "#"
+            }
         }
 ]
