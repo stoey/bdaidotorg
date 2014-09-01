@@ -157,15 +157,15 @@
 		    "links": [
 			{
 			    "name": "Facebook",
-			    "target": "#"
+			    "target": "https://www.facebook.com/BDAIllinois"
 			},
 			{
 			    "name": "Twitter",
-			    "target": "#"
+			    "target": "https://twitter.com/BDAIllinois"
 			},
 			{
 			    "name": "LinkedIn",
-			    "target": "#"
+			    "target": "http://www.linkedin.com/company/bleeding-disorders-alliance-illinois"
 			},
 			{
 			    "name": "info@bdai.org",
