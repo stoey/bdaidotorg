@@ -64,5 +64,17 @@
                 "text": "RSVP",
                 "target": "#"
             }
+        },
+        {
+            "name": "Statewide Education and Fun Weekend Program",
+            "start": "2015-04-11 08:30:00",
+            "end": "2015-04-12 11:00:00",
+            "description": "We are pleased to invite you to this year's Statewide Education & Fun Weekend Program, \"Because of...\" on April 11-12 2015! We have planned a full array of programs and presentations to arm you and your family with quality information including a special event planned for Saturday night giving times for families and individuals to reflect, remember, and celebrate the Bleeding Disorders Community's past, present and future.  We will be hosting some of the best educators and speakers in the state. All breakout sessions aim to provide you with the needed information to continue to have top of the line treatment and care.\nThe deadline for registration is March 15th",
+            "image": "/images/events/statewide.jpg",
+            "action": {
+                "text": "Flyer",
+                "target": "/documents/statewide_2015_flyer.pdf"
+            }
+
         }
 ]
